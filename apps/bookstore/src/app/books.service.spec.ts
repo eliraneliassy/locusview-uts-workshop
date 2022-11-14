@@ -25,10 +25,12 @@ describe('BooksService', () => {
   it('should getbooks and return value', () => {
 
     const mock: Book[] = BOOKS_MOCK;
+    console.log(1);
 
     service.getBooks('Angular')
       .subscribe((results: Book[]) => {
-
+        
+        console.log(2);
         expect(results).toBeTruthy();
         expect(results.length).toBe(10);
         expect(results[0].title).toEqual(mock[0].title);
