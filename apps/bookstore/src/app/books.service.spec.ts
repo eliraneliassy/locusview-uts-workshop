@@ -4,11 +4,14 @@ import { TestBed } from '@angular/core/testing';
 
 import { BooksService } from './books.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 
 describe('BooksService', () => {
   let service: BooksService;
   let httpController: HttpTestingController;
+  let httpClientSpy: any;
+  let httpClient: HttpClient;
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -16,6 +19,10 @@ describe('BooksService', () => {
     });
     service = TestBed.inject(BooksService);
     httpController = TestBed.inject(HttpTestingController);
+
+    httpClientSpy = jest.spyOn(httpClient, 'get');
+
+
   });
 
   it('should be created', () => {
@@ -27,9 +34,11 @@ describe('BooksService', () => {
     const mock: Book[] = BOOKS_MOCK;
     console.log(1);
 
+
+
     service.getBooks('Angular')
       .subscribe((results: Book[]) => {
-        
+
         console.log(2);
         expect(results).toBeTruthy();
         expect(results.length).toBe(10);
