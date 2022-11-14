@@ -20,14 +20,27 @@ describe('ChangeColorDirective', () => {
   let renderer2: Renderer2;
   
 
-  beforeEach((async() => {
+
+  beforeEach((async () => {
+
+    renderer2 = {
+      setStyle: jest.fn()
+    } as any;
+
+    elementRefMock = {
+      nativeElement: {}
+    } as any;
 
     await TestBed.configureTestingModule({
 
       declarations: [
         TestComponent, ChangeColorDirective
       ],
-     
+      providers: [
+        { provide: Renderer2, useValue: renderer2 },
+        { provide: ElementRef, useValue: elementRefMock },
+      ]
+
 
     }).compileComponents();
 
@@ -44,12 +57,27 @@ describe('ChangeColorDirective', () => {
   });
 
   it('should change color if directive exist', () => {
-    
+
+    const r = TestBed.inject(Renderer2);
+    console.log(r);
+
     const element = el.query(By.directive(ChangeColorDirective));
 
     expect(element).toBeTruthy();
     expect(element.nativeElement.style.backgroundColor).toEqual('yellow');
   })
 
+  it('should change color if directive exist2', () => {
+    const directive = new ChangeColorDirective(elementRefMock, renderer2);
+    const rendererSpy = jest.spyOn(renderer2, 'setStyle');
+
+    directive.ngAfterViewInit();
+
+    expect(rendererSpy).toHaveBeenCalled();
+
+    
   
+  })
+
+
 });
