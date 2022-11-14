@@ -20,9 +20,9 @@ describe('ChangeColorDirective', () => {
   let renderer2: Renderer2;
   
 
-  beforeEach(async(() => {
+  beforeEach((async() => {
 
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
 
       declarations: [
         TestComponent, ChangeColorDirective
@@ -44,6 +44,7 @@ describe('ChangeColorDirective', () => {
   });
 
   it('should change color if directive exist', () => {
+    
     const element = el.query(By.directive(ChangeColorDirective));
 
     expect(element).toBeTruthy();
