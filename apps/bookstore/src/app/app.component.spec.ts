@@ -41,7 +41,10 @@ describe('AppComponent', () => {
 
 
     await TestBed.configureTestingModule({
-      declarations: [AppComponent, ItemComponent],
+      declarations: [
+        AppComponent,
+        ItemComponent
+      ],
       imports: [
         HttpClientTestingModule,
         MatDialogModule,
@@ -94,24 +97,6 @@ describe('AppComponent', () => {
     expect(cmp1.componentInstance.book).toEqual(BOOKS_MOCK[0]);
   }));
 
-  it('should show items - fakeAsync', fakeAsync(() => {
-    
-    // tick(2000);
-    flush();
-
-    
-
-    fixture.detectChanges();
-
-    const items: HTMLDivElement = fixture.debugElement.query(By.css('.items')).nativeElement;
-    console.log(items);
-
-    const firstItem = items.querySelectorAll('.item')[0];
-
-    expect(firstItem.querySelector('.title')?.textContent).toEqual(BOOKS_MOCK[0].title);
-
-
-  }));
 
 
 

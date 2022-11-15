@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'locusview-uts-workshop-popup',
+  selector: 'my-popup',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss'],
 })
