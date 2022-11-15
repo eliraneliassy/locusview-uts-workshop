@@ -18,7 +18,7 @@ describe('ChangeColorDirective', () => {
   let el: DebugElement;
   let elementRefMock: ElementRef;
   let renderer2: Renderer2;
-  
+
 
 
   beforeEach((async () => {
@@ -48,6 +48,7 @@ describe('ChangeColorDirective', () => {
     component = fixture.debugElement.componentInstance;
     el = fixture.debugElement;
 
+
     fixture.detectChanges();
   }));
 
@@ -75,8 +76,8 @@ describe('ChangeColorDirective', () => {
 
     expect(rendererSpy).toHaveBeenCalled();
 
-    
-  
+
+
   })
 
 
