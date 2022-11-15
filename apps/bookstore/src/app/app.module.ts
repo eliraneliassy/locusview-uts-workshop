@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { DiscountPipe } from './discount.pipe';
 import { ChangeColorDirective } from './change-color.directive';
 import { ItemComponent } from './item/item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogPreviewComponent } from './dialog-preview/dialog-preview.component';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -13,8 +17,15 @@ import { ItemComponent } from './item/item.component';
     DiscountPipe,
     ChangeColorDirective,
     ItemComponent,
+    DialogPreviewComponent,
+    PopupComponent,
   ],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,3 +1,6 @@
 <div class="items" *ngIf="books$ | async as books">
-    <locusview-uts-workshop-item [book]="book" *ngFor="let book of books" class="book-item"></locusview-uts-workshop-item>
+    <locusview-uts-workshop-item [book]="book" *ngFor="let book of books" class="book-item"
+    (click)="previewItem(book)"></locusview-uts-workshop-item>
 </div>
+
+
